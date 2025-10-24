@@ -1,8 +1,6 @@
 "use client";
 
 import React, { useRef, useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
-import dynamic from "next/dynamic";
 import gsap from "gsap";
 import type { Swiper as SwiperType } from "swiper/types";
 import Header from "@/components/layout/header";
@@ -14,12 +12,9 @@ import FormSection from "@/components/screen/Formpage";
 import ResultSection from "@/components/screen/Resultpage";
 
 // Lottie
-const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 import heroAnim from "@/public/animation/JB2G_Lottie.json";
 
 export default function WalkthroughPage() {
-  const router = useRouter();
-
   // --- State ---
   const [showTutorial, setShowTutorial] = useState(false);
   const [showForm, setShowForm] = useState(false);

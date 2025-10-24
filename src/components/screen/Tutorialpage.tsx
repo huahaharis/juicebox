@@ -2,7 +2,6 @@ import React from "react";
 import dynamic from "next/dynamic";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
-import type { Swiper as SwiperType } from "swiper/types";
 import "swiper/css";
 import "swiper/css/pagination";
 

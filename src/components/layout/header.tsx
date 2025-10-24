@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { useRouter } from "next/navigation";
 
 type HeaderProps = {
     title: string;
@@ -13,7 +12,6 @@ type HeaderProps = {
 
 
 export default function Header({ title = "juicebox", showBack, onRefresh, onBack }: HeaderProps) {
-    const router = useRouter();
     const [spin, setSpin] = React.useState(false);
 
     const handleRefresh = () => {
@@ -26,7 +24,6 @@ export default function Header({ title = "juicebox", showBack, onRefresh, onBack
 
     return (
         <header className="w-full max-w-[420px] flex items-center justify-center py-4 relative text-white z-50 pointer-events-auto">
-            {/* Back button */}
             {showBack && (
                 <button
                     onClick={onBack}
@@ -48,10 +45,8 @@ export default function Header({ title = "juicebox", showBack, onRefresh, onBack
                 </button>
             )}
 
-            {/* Title */}
             <h1 className="text-[28px] font-extrabold tracking-tight">{title}</h1>
 
-            {/* Refresh button */}
             {onRefresh && (
                 <button
                     onClick={handleRefresh}
