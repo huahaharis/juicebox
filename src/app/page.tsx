@@ -5,21 +5,21 @@ import gsap from "gsap";
 import type { Swiper as SwiperType } from "swiper/types";
 import Header from "@/components/layout/header";
 
-// Reusable Components
 import HomeSection from "@/components/screen/Homepage";
 import TutorialSection from "@/components/screen/Tutorialpage";
 import FormSection from "@/components/screen/Formpage";
 import ResultSection from "@/components/screen/Resultpage";
 
-// Lottie
 import heroAnim from "@/public/animation/JB2G_Lottie.json";
+import type { LottieRefCurrentProps } from "lottie-react";
+import { Form, Slide } from "@/types";
 
 export default function WalkthroughPage() {
   const [showTutorial, setShowTutorial] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [showResult, setShowResult] = useState(false);
   const [formStep, setFormStep] = useState(0);
-  const [formData, setFormData] = useState({ firstName: "", email: "" });
+  const [formData, setFormData] = useState<Form>({ firstName: "", email: "" });
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isFocused, setIsFocused] = useState(false);
 
@@ -27,7 +27,7 @@ export default function WalkthroughPage() {
   const tutorialRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLDivElement>(null);
   const resultRef = useRef<HTMLDivElement>(null);
-  const lottieRef = useRef<any>(null);
+  const lottieRef = useRef<LottieRefCurrentProps | null>(null);
   const swiperRef = useRef<SwiperType | null>(null);
   const tlMainRef = useRef<gsap.core.Timeline | null>(null);
   const tlFormRef = useRef<gsap.core.Timeline | null>(null);
@@ -164,7 +164,7 @@ export default function WalkthroughPage() {
     }
   };
 
-  const slides = [
+  const slides: Slide[] = [
     { desc: "Professionals around the world shared how they feel about technology and I’ve listened. Now it’s your turn." },
     { desc: "I’ll ask you a handful of meaningful questions and compare your responses with people in your industry." },
     { desc: "You’ll get insights into current industry sentiments and a reality check about technology in a few minutes. Deal? Great!" },
@@ -186,7 +186,7 @@ export default function WalkthroughPage() {
 
       {!showTutorial && !showForm && !showResult && (
         <div ref={heroRef}>
-          <HomeSection lottieRef={heroRef} heroAnim={heroAnim} onStart={handleToTutorial} />
+          <HomeSection lottieRef={lottieRef} heroAnim={heroAnim} onStart={handleToTutorial} />
         </div>
       )}
 

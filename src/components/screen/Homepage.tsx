@@ -1,8 +1,9 @@
 import React from "react";
 import dynamic from "next/dynamic";
+import { HeroSectionProps } from "@/types";
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
-export default function HeroSection({ lottieRef, onStart, heroAnim }: any) {
+export default function HeroSection({ lottieRef, onStart, heroAnim }: HeroSectionProps) {
   return (
     <div
       className="relative z-10 flex flex-col items-center justify-center flex-1 w-full max-w-[320px] text-center"

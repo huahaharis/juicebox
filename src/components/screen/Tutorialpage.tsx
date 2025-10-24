@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import { Slide, TutorialSectionProps } from "@/types";
 
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
@@ -15,7 +16,7 @@ export default function TutorialSection({
   swiperRef,
   handleToForm,
   heroAnim,
-}: any) {
+}: TutorialSectionProps) {
   return (
     <div
       ref={tutorialRef}
@@ -34,7 +35,7 @@ export default function TutorialSection({
         slidesPerView={1}
         className="w-full max-w-[360px] pb-24"
       >
-        {slides.map((s: any, i: number) => (
+        {slides.map((s: Slide, i: number) => (
           <SwiperSlide key={i}>
             <div className="flex flex-col items-center text-center mt-10 px-4">
               <div className="w-[200px] h-[200px] mb-6">

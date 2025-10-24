@@ -1,8 +1,9 @@
 import React from "react";
 import dynamic from "next/dynamic";
+import { ResultSectionProps } from "@/types";
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
-export default function ResultSection({ resultRef, formData, heroAnim }: any) {
+export default function ResultSection({ resultRef, formData, heroAnim }: ResultSectionProps) {
   return (
     <div
       ref={resultRef}
