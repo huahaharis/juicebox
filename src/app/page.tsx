@@ -15,7 +15,6 @@ import ResultSection from "@/components/screen/Resultpage";
 import heroAnim from "@/public/animation/JB2G_Lottie.json";
 
 export default function WalkthroughPage() {
-  // --- State ---
   const [showTutorial, setShowTutorial] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [showResult, setShowResult] = useState(false);
@@ -24,7 +23,6 @@ export default function WalkthroughPage() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isFocused, setIsFocused] = useState(false);
 
-  // --- Refs ---
   const heroRef = useRef<HTMLDivElement>(null);
   const tutorialRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLDivElement>(null);
@@ -34,7 +32,6 @@ export default function WalkthroughPage() {
   const tlMainRef = useRef<gsap.core.Timeline | null>(null);
   const tlFormRef = useRef<gsap.core.Timeline | null>(null);
 
-  // --- Animation: HERO → TUTORIAL ---
   useEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ paused: true });
@@ -61,7 +58,6 @@ export default function WalkthroughPage() {
     return () => ctx.revert();
   }, []);
 
-  // --- Handlers ---
   const handleToTutorial = () => {
     tlMainRef.current?.play();
     setTimeout(() => setShowTutorial(true), 1000);
@@ -168,7 +164,6 @@ export default function WalkthroughPage() {
     }
   };
 
-  // --- Tutorial Slides ---
   const slides = [
     { desc: "Professionals around the world shared how they feel about technology and I’ve listened. Now it’s your turn." },
     { desc: "I’ll ask you a handful of meaningful questions and compare your responses with people in your industry." },
